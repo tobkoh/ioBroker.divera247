@@ -101,6 +101,19 @@ class Divera247 extends utils.Adapter {
 						native: {},
 					});
 
+					// Creating the Object 'id' -> response JSON key 'id'
+					await this.setObjectNotExistsAsync('id', {
+						type: 'state',
+						common: {
+							name: 'DIVERA-Einsatznummer',
+							type: 'number',
+							role: 'text',
+							read: true,
+							write: false
+						},
+						native: {},
+					});
+					
 					// Creating the Object 'address' -> response JSON key 'data.address'
 					await this.setObjectNotExistsAsync('address', {
 						type: 'state',
@@ -190,6 +203,20 @@ class Divera247 extends utils.Adapter {
 							write: false
 						},
 						native: {},
+						
+					});
+
+					// Creating the Object 'addressed_vehicle' -> response JSON key 'data.vehicle'
+					await this.setObjectNotExistsAsync('addressed_vehicle', {
+						type: 'state',
+						common: {
+							name: 'Alarmierte Fahrzeuge',
+							type: 'string',
+							role: 'text',
+							read: true,
+							write: false
+						},
+						native: {},
 					});
 
 					// Creating the Object 'lastUpdate' -> current timestamp
@@ -209,6 +236,7 @@ class Divera247 extends utils.Adapter {
 					await this.setState('title', { val: null });
 					await this.setState('text', { val: null });
 					await this.setState('foreign_id', { val: null });
+					await this.setState('id', { val: null });
 					await this.setState('address', { val: null });
 					await this.setState('lat', { val: null });
 					await this.setState('lng', { val: null });
@@ -216,6 +244,7 @@ class Divera247 extends utils.Adapter {
 					await this.setState('priority', { val: null });
 					await this.setState('addressed_users', { val: null });
 					await this.setState('addressed_groups', { val: null });
+					await this.setState('addressed_vehicle', { val: null });
 					await this.setState('lastUpdate', { val: null });
 					await this.setState('alarm', { val: false, ack: true });
 
@@ -314,6 +343,7 @@ class Divera247 extends utils.Adapter {
 								this.setState('title', { val: content.data.title, ack: true });
 								this.setState('text', { val: content.data.text, ack: true });
 								this.setState('foreign_id', { val: content.data.foreign_id, ack: true });
+								this.setState('id', { val: content.data.id, ack: true });
 								this.setState('address', { val: content.data.address, ack: true });
 								this.setState('lat', { val: content.data.lat, ack: true });
 								this.setState('lng', { val: content.data.lng, ack: true });
@@ -321,6 +351,7 @@ class Divera247 extends utils.Adapter {
 								this.setState('priority', { val: content.data.priority, ack: true });
 								this.setState('addressed_users', { val: content.data.ucr_addressed, ack: true });
 								this.setState('addressed_groups', { val: content.data.group, ack: true });
+								this.setState('addressed_vehicle', { val: content.data.vehicle, ack: true });
 								this.setState('alarm', { val: content.success, ack: true });
 								this.log.debug('user is alarmed and states has been refreshed for the current alarm');
 								break;
@@ -333,6 +364,7 @@ class Divera247 extends utils.Adapter {
 						this.setState('title', { val: content.data.title, ack: true });
 						this.setState('text', { val: content.data.text, ack: true });
 						this.setState('foreign_id', { val: content.data.foreign_id, ack: true });
+						this.setState('id', { val: content.data.id, ack: true });
 						this.setState('address', { val: content.data.address, ack: true });
 						this.setState('lat', { val: content.data.lat, ack: true });
 						this.setState('lng', { val: content.data.lng, ack: true });
@@ -340,6 +372,7 @@ class Divera247 extends utils.Adapter {
 						this.setState('priority', { val: content.data.priority, ack: true });
 						this.setState('addressed_users', { val: content.data.ucr_addressed, ack: true });
 						this.setState('addressed_groups', { val: content.data.group, ack: true });
+						this.setState('addressed_vehicle', { val: content.data.vehicle, ack: true });
 						this.setState('alarm', { val: content.success, ack: true });
 						this.log.debug('states has been refreshed for the current alarm');
 					}
