@@ -1,8 +1,12 @@
 {
 	"common": {
 		"name": "divera247",
-		"version": "0.0.10",
+		"version": "0.0.11",
 		"news": {
+			"0.0.11": {
+				"en": "add id und adressed-vehicle",
+				"de": "id und Alarmierte Fahrzeuge hinzugefügt"
+			},
 			"0.0.10": {
 				"en": "bug in info.connection fixed and handling of user ids expanded",
 				"de": "Fehler in Verbindungsanzeige behoben und Handling von UserIDs erweitert"
@@ -69,8 +73,8 @@
 		"main": "main.js",
 		"icon": "divera247.png",
 		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/TKnpl/ioBroker.divera247/master/admin/divera247.png",
-		"readme": "https://github.com/TKnpl/ioBroker.divera247/blob/master/README.md",
+		"extIcon": "https://raw.githubusercontent.com/tobkoh/ioBroker.divera247/master/admin/divera247.png",
+		"readme": "https://github.com/tobkoh/ioBroker.divera247/blob/master/README.md",
 		"loglevel": "info",
 		"mode": "daemon",
 		"type": "alarm",
