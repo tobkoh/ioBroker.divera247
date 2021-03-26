@@ -33,6 +33,9 @@ Please also chose an updating interval for calling the API server. 30 seconds ar
 
 ## Changelog
 
+### 0.0.11
+* (tobkoh) add id and adressed-vehicle
+
 ### 0.0.10
 * (TKnpl) bug in info.connection fixed and handling of user ids expanded
 
